@@ -1,0 +1,834 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#082b59">
+<meta name="description" content="AVTECH Systems Kenya - School Management Systems, Examination Analysis, Report Cards, Website Design, Apps and Software Development.">
+<title>AVTECH Systems | Smart Solutions for Better Education</title>
+
+<style>
+:root {
+  --navy:#082b59;
+  --blue:#075aa6;
+  --gold:#f59a18;
+  --light:#f2f7fc;
+  --ink:#172b45;
+  --muted:#63758b;
+  --white:#fff;
+  --green:#159b69;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  color:var(--ink);
+  line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(1160px,92%);margin:auto}
+
+/* TOP BAR */
+.topbar{
+  background:#061d3d;
+  color:#dce9f8;
+  padding:8px 0;
+  font-size:13px;
+}
+.topbar .wrap{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+/* NAVIGATION */
+header{
+  background:white;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 4px 20px #00000012;
+}
+.nav{
+  min-height:75px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--navy);
+  font-weight:900;
+  font-size:25px;
+}
+.brand-icon{
+  background:linear-gradient(140deg,#0879c9,#082b59);
+  color:white;
+  width:45px;
+  height:45px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  font-size:28px;
+}
+.brand small{
+  display:block;
+  font-size:9px;
+  letter-spacing:3px;
+  color:var(--muted);
+}
+nav{
+  display:flex;
+  gap:22px;
+  align-items:center;
+}
+nav a{
+  font-weight:bold;
+  font-size:14px;
+  color:#42556d;
+}
+nav a:hover{color:var(--blue)}
+.menu{
+  display:none;
+  background:white;
+  border:1px solid #ddd;
+  border-radius:8px;
+  padding:8px 12px;
+  font-size:20px;
+}
+.btn{
+  display:inline-block;
+  padding:12px 20px;
+  border-radius:8px;
+  font-weight:bold;
+  transition:.2s;
+  border:0;
+}
+.btn:hover{transform:translateY(-2px)}
+.gold{background:var(--gold);color:#172b45}
+.blue{background:var(--blue);color:white}
+.white{background:white;color:var(--navy)}
+
+/* HERO */
+.hero{
+  background:
+    radial-gradient(circle at 85% 15%,#1b69a8,transparent 32%),
+    linear-gradient(120deg,#061d3d,#0a3d78 65%,#0b5795);
+  color:white;
+  padding:75px 0;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:40px;
+  align-items:center;
+}
+.eyebrow{
+  color:var(--gold);
+  font-size:12px;
+  letter-spacing:2px;
+  font-weight:900;
+  text-transform:uppercase;
+}
+.hero h1{
+  font-size:clamp(38px,5vw,62px);
+  line-height:1.1;
+  margin:15px 0;
+}
+.hero p{
+  color:#dce9f8;
+  font-size:18px;
+}
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:25px;
+}
+
+/* DASHBOARD PREVIEW */
+.dashboard{
+  background:white;
+  border-radius:16px;
+  padding:14px;
+  color:var(--ink);
+  box-shadow:0 25px 60px #00152e70;
+}
+.dash-head{
+  display:flex;
+  justify-content:space-between;
+  padding:12px;
+  border-bottom:1px solid #eee;
+  font-weight:bold;
+  color:var(--navy);
+}
+.online{
+  color:var(--green);
+  font-size:11px;
+}
+.dash-body{
+  display:grid;
+  grid-template-columns:100px 1fr;
+  gap:10px;
+}
+.sidebar{
+  background:var(--navy);
+  color:white;
+  border-radius:8px;
+  padding:10px 7px;
+  font-size:10px;
+}
+.sidebar div{
+  padding:9px 2px;
+  border-bottom:1px solid #ffffff20;
+}
+.dash-content{padding:12px}
+.dash-content h3{
+  color:var(--navy);
+  font-size:16px;
+}
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+.stat{
+  padding:12px 7px;
+  color:white;
+  border-radius:8px;
+  font-size:10px;
+}
+.stat strong{
+  display:block;
+  font-size:20px;
+}
+.stat:nth-child(1){background:#1684d1}
+.stat:nth-child(2){background:#18a477}
+.stat:nth-child(3){background:#ef9a20}
+.activity{
+  margin-top:12px;
+  border:1px solid #e5eaf2;
+  border-radius:8px;
+  padding:12px;
+  font-size:12px;
+}
+.activity p{color:#63758b;font-size:11px}
+
+/* TRUST */
+.trust{
+  background:#f2f7fc;
+  padding:25px 0;
+}
+.trust-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  text-align:center;
+}
+.trust-item strong{
+  display:block;
+  font-size:25px;
+  color:var(--blue);
+}
+
+/* SECTIONS */
+section{padding:70px 0}
+.section-head{
+  text-align:center;
+  max-width:750px;
+  margin:0 auto 35px;
+}
+.section-head h2{
+  color:var(--navy);
+  font-size:34px;
+  margin:8px 0;
+}
+.section-head p{color:var(--muted)}
+
+/* SERVICES */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.service{
+  border:1px solid #e3ebf4;
+  border-radius:13px;
+  overflow:hidden;
+  background:white;
+  box-shadow:0 8px 25px #0c31510b;
+  transition:.2s;
+}
+.service:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 35px #0c315118;
+}
+.service img{
+  width:100%;
+  height:185px;
+  object-fit:cover;
+  display:block;
+  background:#edf4fb;
+}
+.service-content{padding:20px}
+.service-tag{
+  color:var(--blue);
+  font-size:10px;
+  font-weight:bold;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+.service h3{
+  color:var(--navy);
+  margin:7px 0;
+  font-size:19px;
+}
+.service p{
+  color:var(--muted);
+  font-size:14px;
+  margin:0;
+}
+
+/* ABOUT */
+.about{background:var(--light)}
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:35px;
+  align-items:center;
+}
+.about h2{
+  font-size:35px;
+  line-height:1.2;
+  color:var(--navy);
+}
+.about p{color:var(--muted)}
+.about-image{
+  width:100%;
+  border-radius:15px;
+}
+.benefits{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:20px;
+}
+.benefit{
+  background:white;
+  border:1px solid #e3ebf4;
+  padding:13px;
+  border-radius:8px;
+  font-weight:bold;
+  font-size:13px;
+}
+.benefit:before{
+  content:"✓";
+  color:var(--green);
+  margin-right:8px;
+}
+
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+.gallery img{
+  width:100%;
+  border-radius:12px;
+  border:1px solid #ddd;
+}
+
+/* SCHOOL SYSTEM */
+.system{
+  background:linear-gradient(120deg,#082b59,#0c5794);
+  color:white;
+  text-align:center;
+  padding:65px 0;
+}
+.system h2{font-size:35px}
+.system p{
+  color:#dce9f8;
+  max-width:750px;
+  margin:0 auto 25px;
+}
+
+/* PROCESS */
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.step{
+  padding:22px;
+  border:1px solid #e3ebf4;
+  border-radius:12px;
+}
+.step b{
+  background:#e8f3ff;
+  color:var(--blue);
+  padding:10px 14px;
+  border-radius:9px;
+}
+.step h3{color:var(--navy)}
+.step p{color:var(--muted);font-size:14px}
+
+/* CONTACT */
+.contact{background:var(--light)}
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+.contact-card{
+  background:white;
+  border:1px solid #e3ebf4;
+  border-radius:13px;
+  padding:25px;
+}
+.contact-card h3{color:var(--navy)}
+.contact-card a:not(.btn){
+  display:block;
+  color:var(--blue);
+  padding:8px 0;
+  font-weight:bold;
+  overflow-wrap:anywhere;
+}
+footer{
+  background:#061d3d;
+  color:#c9d9eb;
+  padding:28px 0;
+  text-align:center;
+  font-size:13px;
+}
+footer strong{color:white}
+
+/* MOBILE */
+@media(max-width:900px){
+  .hero-grid,.about-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:650px){
+  .menu{display:block}
+  nav{
+    display:none;
+    position:absolute;
+    top:75px;
+    left:0;
+    right:0;
+    background:white;
+    padding:20px 5%;
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  nav.open{display:flex}
+  .nav>.btn{display:none}
+  .services-grid,.steps,.contact-grid,.gallery{
+    grid-template-columns:1fr;
+  }
+  .trust-grid{grid-template-columns:repeat(2,1fr)}
+  .hero{padding:55px 0}
+  section{padding:55px 0}
+  .dash-body{grid-template-columns:75px 1fr}
+  .about h2,.system h2{font-size:28px}
+  .benefits{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+ <div class="wrap">
+  <span>Technology • Automation • Excellence</span>
+  <span>Websites | Apps | Hosting | School Systems | Support</span>
+ </div>
+</div>
+
+<header>
+<div class="wrap nav">
+ <a class="brand" href="#home">
+  <span class="brand-icon">A</span>
+  <span>AVTECH<small>SYSTEMS</small></span>
+ </a>
+
+ <button class="menu" id="menuBtn">☰</button>
+
+ <nav id="nav">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#school-system">School System</a>
+  <a href="#contact">Contact</a>
+ </nav>
+
+ <a class="btn blue" href="https://wa.me/254108417217">Talk to AVTECH</a>
+</div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="home">
+<div class="wrap hero-grid">
+
+<div>
+ <div class="eyebrow">Your trusted technology partner</div>
+ <h1>Smart Solutions for <span style="color:#ffb12d">Better Education.</span></h1>
+
+ <p>
+ We create, implement and support modern school management
+ systems, professional websites and custom digital
+ applications for schools and businesses.
+ </p>
+
+ <div class="actions">
+  <a class="btn gold" href="https://cbesystem.github.io/Avtech/" target="_blank">
+   REGISTER A SCHOOL ↗
+  </a>
+  <a class="btn white" href="https://wa.me/254108417217">
+   BOOK A DEMO
+  </a>
+ </div>
+</div>
+
+<!-- DASHBOARD PREVIEW -->
+<div class="dashboard">
+ <div class="dash-head">
+  <span>◈ AVTECH SCHOOL PORTAL</span>
+  <span class="online">● SYSTEM OVERVIEW</span>
+ </div>
+
+ <div class="dash-body">
+  <div class="sidebar">
+   <div>▦ Dashboard</div>
+   <div>♙ Students</div>
+   <div>▤ Teachers</div>
+   <div>▣ Classes</div>
+   <div>✓ Attendance</div>
+   <div>▥ Exams & Marks</div>
+   <div>▧ Reports</div>
+   <div>⚙ Settings</div>
+  </div>
+
+  <div class="dash-content">
+   <h3>School Dashboard</h3>
+
+   <div class="stats">
+    <div class="stat">Learners<strong>1,250</strong></div>
+    <div class="stat">Teachers<strong>85</strong></div>
+    <div class="stat">Classes<strong>42</strong></div>
+   </div>
+
+   <div class="activity">
+    <strong>Recent Activity</strong>
+    <p>✓ Examination marks updated</p>
+    <p>✓ Student records managed</p>
+    <p>✓ Report preparation</p>
+    <p>✓ School administration</p>
+   </div>
+  </div>
+ </div>
+</div>
+
+</div>
+</section>
+
+<!-- TRUST -->
+<div class="trust">
+<div class="wrap trust-grid">
+ <div class="trust-item"><strong>01</strong>School-focused solutions</div>
+ <div class="trust-item"><strong>02</strong>Easy-to-use systems</div>
+ <div class="trust-item"><strong>03</strong>Flexible packages</div>
+ <div class="trust-item"><strong>04</strong>Support and training</div>
+</div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+<div class="wrap">
+
+<div class="section-head">
+ <div class="eyebrow">What we offer</div>
+ <h2>Our Digital Services</h2>
+ <p>Explore AVTECH solutions for education, administration and business.</p>
+</div>
+
+<div class="services-grid">
+
+<div class="service">
+ <img src="assets/avtech-school-system.png" alt="School management system">
+ <div class="service-content">
+  <div class="service-tag">Education Technology</div>
+  <h3>School Management Systems</h3>
+  <p>Student registration, class management, subjects, teacher workflows and school administration.</p>
+ </div>
+</div>
+
+<div class="service">
+ <img src="assets/avtech-jss-cbc-system.png" alt="Exam analysis and report cards">
+ <div class="service-content">
+  <div class="service-tag">Academic Performance</div>
+  <h3>Exam Analysis & Report Cards</h3>
+  <p>Marks entry, academic analysis, learner ranking, performance summaries and printable reports.</p>
+ </div>
+</div>
+
+<div class="service">
+ <img src="assets/avtech-school-system.png" alt="Student and staff management">
+ <div class="service-content">
+  <div class="service-tag">Administration</div>
+  <h3>Student & Staff Management</h3>
+  <p>Organise learner profiles, class lists, staff information and administrative records.</p>
+ </div>
+</div>
+
+<div class="service">
+ <img src="assets/avtech-jss-cbc-system.png" alt="School certificates and documents">
+ <div class="service-content">
+  <div class="service-tag">Documents</div>
+  <h3>Certificates & Document Systems</h3>
+  <p>Certificate generation, printable documents and school records management.</p>
+ </div>
+</div>
+
+<div class="service">
+ <img src="assets/avtech-services-promo.png" alt="Website development">
+ <div class="service-content">
+  <div class="service-tag">Online Presence</div>
+  <h3>Website Development</h3>
+  <p>Professional, responsive websites for schools, organisations and businesses.</p>
+ </div>
+</div>
+
+<div class="service">
+ <img src="assets/avtech-services-promo.png" alt="Mobile application development">
+ <div class="service-content">
+  <div class="service-tag">Custom Technology</div>
+  <h3>Mobile Apps & Software</h3>
+  <p>Web applications and mobile-friendly digital tools designed around your requirements.</p>
+ </div>
+</div>
+
+<div class="service">
+ <img src="assets/avtech-services-promo.png" alt="Website hosting services">
+ <div class="service-content">
+  <div class="service-tag">Infrastructure</div>
+  <h3>Hosting & Domain Guidance</h3>
+  <p>Website publishing, domain connection and suitable hosting arrangements.</p>
+ </div>
+</div>
+
+<div class="service">
+ <img src="assets/avtech-school-system.png" alt="Technical support">
+ <div class="service-content">
+  <div class="service-tag">After-sales Support</div>
+  <h3>System Support & Training</h3>
+  <p>Implementation guidance, configuration, user training and technical assistance.</p>
+ </div>
+</div>
+
+<div class="service">
+ <img src="assets/avtech-jss-cbc-system.png" alt="Fees and business management">
+ <div class="service-content">
+  <div class="service-tag">Business Tools</div>
+  <h3>Fees & Business Management</h3>
+  <p>Discuss fee records, payment tracking, point-of-sale and stock management tools.</p>
+ </div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+<div class="wrap about-grid">
+
+<div>
+ <div class="eyebrow">About AVTECH Systems</div>
+ <h2>Technology and Automation for Better-Managed Institutions.</h2>
+
+ <p>
+ AVTECH Systems provides practical digital solutions for
+ schools and businesses. We understand that institutions
+ need tools that are accessible, straightforward to use
+ and suitable for their day-to-day work.
+ </p>
+
+ <p>
+ We work with you to understand your needs, discuss the
+ right solution and provide implementation support
+ as agreed.
+ </p>
+
+ <div class="benefits">
+  <div class="benefit">Professional modern designs</div>
+  <div class="benefit">Mobile and desktop friendly</div>
+  <div class="benefit">Flexible packages</div>
+  <div class="benefit">Setup and user guidance</div>
+ </div>
+</div>
+
+<img class="about-image"
+ src="assets/avtech-services-promo.png"
+ alt="AVTECH website and application services">
+
+</div>
+</section>
+
+<!-- PROMOTIONAL GALLERY -->
+<section>
+<div class="wrap">
+ <div class="section-head">
+  <div class="eyebrow">Our solutions</div>
+  <h2>AVTECH in Action</h2>
+  <p>Explore our school system and technology service promotions.</p>
+ </div>
+
+ <div class="gallery">
+  <img src="assets/avtech-services-promo.png" alt="AVTECH services">
+  <img src="assets/avtech-school-system.png" alt="School system implementation">
+  <img src="assets/avtech-jss-cbc-system.png" alt="JSS CBC management system">
+ </div>
+</div>
+</section>
+
+<!-- SCHOOL SYSTEM -->
+<section class="system" id="school-system">
+<div class="wrap">
+ <div class="eyebrow">AVTECH School Management System</div>
+ <h2>Ready to Digitalise Your School?</h2>
+
+ <p>
+ Open the AVTECH school platform to begin school registration
+ or access your school's system. For implementation support
+ or a demonstration, contact AVTECH directly.
+ </p>
+
+ <a class="btn gold"
+ href="https://cbesystem.github.io/Avtech/"
+ target="_blank">
+ OPEN SCHOOL REGISTRATION ↗
+ </a>
+</div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section>
+<div class="wrap">
+
+<div class="section-head">
+ <div class="eyebrow">Simple process</div>
+ <h2>How to Get Started</h2>
+</div>
+
+<div class="steps">
+
+<div class="step">
+ <b>1</b>
+ <h3>Share Your Needs</h3>
+ <p>Tell us about your school or business and the challenge you want to solve.</p>
+</div>
+
+<div class="step">
+ <b>2</b>
+ <h3>Choose a Solution</h3>
+ <p>Discuss features, packages, pricing and implementation requirements.</p>
+</div>
+
+<div class="step">
+ <b>3</b>
+ <h3>Implement and Learn</h3>
+ <p>We help configure the solution and guide your team on using it, as agreed.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<div class="wrap">
+
+<div class="section-head">
+ <div class="eyebrow">Talk to our team</div>
+ <h2>Let's Build Something Useful Together</h2>
+ <p>Contact AVTECH for enquiries, quotations, demonstrations and support.</p>
+</div>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+ <h3>Contact AVTECH</h3>
+
+ <a href="https://wa.me/254108417217" target="_blank">
+ WhatsApp: 0108417217
+ </a>
+
+ <a href="mailto:avtechdocs995@gmail.com">
+ Email: avtechdocs995@gmail.com
+ </a>
+
+ <a href="https://cbesystem.github.io/Avtech/" target="_blank">
+ School Registration Platform
+ </a>
+</div>
+
+<div class="contact-card">
+ <h3>Request a Demonstration</h3>
+
+ <p>
+ Send us your name, institution and the service
+ you are interested in.
+ </p>
+
+ <a class="btn blue"
+ href="https://wa.me/254108417217?text=Hello%20AVTECH%2C%20I%20would%20like%20to%20request%20a%20demonstration."
+ target="_blank">
+ REQUEST A DEMO ↗
+ </a>
+</div>
+
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="wrap">
+ © <span id="year"></span>
+ <strong>AVTECH SYSTEMS</strong>
+ <p>Smart Solutions for Better Education.</p>
+</div>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.getElementById("nav");
+
+menuBtn.addEventListener("click", function(){
+  const opened = nav.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", String(opened));
+});
+
+nav.querySelectorAll("a").forEach(function(link){
+  link.addEventListener("click", function(){
+    nav.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+  });
+});
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+</script>
+
+</body>
+</html>
